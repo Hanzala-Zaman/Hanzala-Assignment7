@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './main/app.component';
+import { AllAnimalsComponent } from './animals/all-animals/all-animals.component';
+import { FiveAnimalsComponent } from './animals/five-animals/five-animals.component';
+import { AnimalService } from './animal.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, AllAnimalsComponent, FiveAnimalsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,RouterModule.forRoot
+    ([
+
+      { path: 'all-animals', component: AllAnimalsComponent },
+      { path: 'five-animals', component: FiveAnimalsComponent },
+      { path: '', component: AllAnimalsComponent }
+    ])
+
   ],
-  providers: [],
+  providers: [AnimalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

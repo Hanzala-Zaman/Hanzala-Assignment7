@@ -1,0 +1,21 @@
+
+<app-five-animals [animals]="firstFiveAnimals"></app-five-animals>
+<h2>All Animals</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            
+        </tr>
+        <tbody *ngFor="let temp of animalService.animals, let i = index">
+            <tr>      
+                 <td>{{temp.name}}</td>
+                 <td>{{temp.species}}</td>
+                 <td>{{temp.foods.likes}}</td>
+                 <td>{{temp.foods.dislikes}}</td>
+             </tr>
+            
+        </tbody>
+    </table>
